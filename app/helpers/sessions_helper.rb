@@ -1,6 +1,5 @@
 module SessionsHelper
-	require 'net/http'
-	require 'json'
+	
 	def log_in(user)
 		session[:user_id] = user.id
 	end

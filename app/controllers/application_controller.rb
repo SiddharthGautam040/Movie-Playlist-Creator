@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	include SessionsHelper
-	
+	include ApplicationHelper
 	private
     def login_user
       if not curr_user

@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-<div class="container text-center">
+<div class="container text-center mt-3">
   <%= form_with(class: "form-inline", url: "/search", method: :post, local: true , data: { turbo: false }) do |form| %>
     <%= form.label :query, "Search for:" %>
     <%= form.text_field :query, class: "form-control mr-sm-2 mb-4" %>
