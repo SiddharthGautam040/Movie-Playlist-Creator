@@ -6,6 +6,9 @@
 <% if @res %>
   <% if @res["Response"] == "True" %>
     <div class="card" style="width: 18rem;">
+      <% if @res["Poster"] == "N/A" %>
+        <% @res["Poster"] = "https://www.prokerala.com/movies/assets/img/no-poster-available.jpg" %>
+      <% end %>
       <%= image_tag @res["Poster"],class: "card-img-top", alt: 'icon' %>
       <div class="card-body">
         <h5 class="card-title"><%= @res["Title"] %></h5>
