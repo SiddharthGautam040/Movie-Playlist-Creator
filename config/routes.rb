@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "search", to: "users#searchapi"
   get "new/playlists", to: "playlists#new"
   post "new/playlists", to: "playlists#create"
+  delete "playlists/:id", to: "playlists#destroy", as: "delete_playlist"
   post "list_item_add", to: "list_items#add_list_item" ,as: "additem"
   delete "list_item_delete", to: "list_items#destroy", as: "deleteitem"
   get "playlists/:id", to: "playlists#show", as: "playlist"

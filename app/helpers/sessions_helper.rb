@@ -24,4 +24,16 @@ module SessionsHelper
 			redirect_to login_path
 		end
 	end
+
+	def user_in_session
+		if curr_user
+			redirect_to user_now
+		end
+	end
+
+	def is_param_user
+		if params[:id].to_i != curr_user
+			redirect_to user_now
+		end
+	end
 end

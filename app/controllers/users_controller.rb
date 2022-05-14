@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in, only: [:show, :searchapi, :search]
-  before_action 
+  before_action :user_in_session, only: [:new]
+  before_action :is_param_user, only: [:show]
 	def new
 		@user = User.new
 	end
@@ -19,13 +20,6 @@ class UsersController < ApplicationController
   def show
     @user = user_now
     @playlists = Playlist.where(user_id: @user)
-    #@user = User.find_by(id: curr_user)
-   # if @user
-      #movies = Playlist.where(user_id: curr_user).all
-      #if tasks
-      #  @tasks = tasks
-     # end
-    #end
   end
 
   def searchapi

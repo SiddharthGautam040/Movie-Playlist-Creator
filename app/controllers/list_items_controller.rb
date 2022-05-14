@@ -4,6 +4,7 @@ class ListItemsController < ApplicationController
 		list_item = Listitem.new(title: params[:Title],year: params[:Year],released: params[:Released],runtime: params[:Runtime],genere: params[:Genere],writer: params[:Writer],actors: params[:Actors],plot: params[:Plot],language: params[:Language],awards: params[:Awards],poster: params[:Poster],imdb: params[:imdbRating],type: params[:type],total_seasons: params[:total_seasons],response: params[:response],playlist_id: params[:playlist])
 		if list_item.save()
 			update_time(params[:playlist])
+			flash[:success] = "Item Added"
 			redirect_to user_now
 		else
 			if list_item.errors.any?

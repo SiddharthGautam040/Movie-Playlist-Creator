@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+	before_action :user_in_session, only: [:new]
 	def new
 		@user = User.new
 	end

@@ -4,7 +4,7 @@
 </div>
 <div class="container">
 	<%if @playlist_items.length() == 0 %>
-		<h2 class="text-center mt-5"> This list is empty. Try Adding some items </h2>
+		<h2 class="text-center mt-5"> This list is empty. Try <%= link_to "searching", search_path %> and adding some movies </h2>
 	<% end %>
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 	  <% for movie in @playlist_items %>
