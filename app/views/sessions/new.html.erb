@@ -13,13 +13,13 @@
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
             <%= render 'shared/flasherrors' %>  
             <div class="form-outline mb-4">
-              <%= f.email_field :email, class: "form-control form-control-lg", placeholder: "Enter Email" %>
               <%= f.label :email%>
+              <%= f.email_field :email, class: "form-control form-control-lg", placeholder: "Enter Email" %>
             </div>
 
             <div class="form-outline mb-4">
-              <%= f.password_field :password, class: "form-control form-control-lg"%>
               <%= f.label :password%>
+              <%= f.password_field :password, class: "form-control form-control-lg"%>
             </div>
 
             <div class="pt-1 mb-4">
