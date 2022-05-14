@@ -1,0 +1,30 @@
+<%= render "shared/navbar" %>
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+<div class="text-center mt-3">
+	<%= button_to "Create New Playlist", new_playlists_url, class: "btn btn-success", method: :get %>
+</div>
+	<div class = "container mt-3">
+	  <div class="row row-cols-1 row-cols-md-3 g-4">
+	  	<% for playlist in @playlists %>
+		    <div class="col">
+		      <div class="card h-100">
+		        <div class="card-body">
+		          <h5 class="card-title"><%= playlist.title %></h5>
+		          <p class="card-text"><%= playlist.description %></p>
+		          <div class= "inline">
+		          <%= button_to "Check List", playlist_path(playlist), method: :get, class: "btn btn-primary mt-2" %>
+		          <%= button_to "Delete Playlist", playlist_path(playlist), method: :delete, class: "btn btn-danger mt-2" %>
+		      </div>
+		        </div>
+		        <div class="card-footer">
+		          <small class="text-muted">Updated <%= distance_of_time_in_words playlist.updated_at, Time.now %> ago.</small>
+		        </div>
+		      </div>
+		    </div>
+	    <%end%>
+	  </div>
+	</div>

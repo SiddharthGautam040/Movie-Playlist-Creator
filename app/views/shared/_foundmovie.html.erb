@@ -1,0 +1,27 @@
+<% if flash[:danger] %>
+  <div class="alert alert-danger mt-2" role="alert">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
+<% if @res %>
+  <% if @res["Response"] == "True" %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag @res["Poster"],class: "card-img-top", alt: 'icon' %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @res["Title"] %></h5>
+        <p class="card-text"><%= @res["Plot"] %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Year <%= @res["Released"] %></li>
+        <li class="list-group-item">Genre <%= @res["Genre"] %></li>
+        <li class="list-group-item">Awards <%= @res["Awards"] %></li>
+      </ul>
+      <div class="card-body">
+        <%= form_with(url: additem_path(@res), local: true, data: { turbo: false }) do |f|%>
+          <%= f.submit "Add To", class: "btn btn-success" %>
+          <%= f.collection_select :playlist, Playlist.where(user_id: user_now), :id, :title, class: "form-control" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,30 @@
+<%= render 'shared/navbar' %>
+<div class="text-center">
+	<h2><%= @playlist.title %></h2>
+</div>
+<div class="container">
+	<%if @playlist_items.length() == 0 %>
+		<h2 class="text-center mt-5"> This list is empty. Try Adding some items </h2>
+	<% end %>
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+	  <% for movie in @playlist_items %>
+		  <div class="col">
+		    <div class="card h-100 " style="width: 18rem;">
+      			<%= image_tag movie.poster,class: "card-img-top", alt: 'icon' %>
+      			<div class="card-body">
+        		<h5 class="card-title"><%= movie.title %></h5>
+        		<p class="card-text"><%= movie.plot %></p>
+      		</div>
+      		<ul class="list-group list-group-flush">
+	        	<li class="list-group-item">Year <%= movie.released %></li>
+	        	<li class="list-group-item">Genre <%= movie.genere %></li>
+	        	<li class="list-group-item">Awards <%= movie.awards %></li>
+      		</ul>
+      		<div class="card-body">
+        		<%= button_to "Remove", deleteitem_path(movie), class: "btn btn-danger" , method: :delete %>
+      		</div>
+    		</div>
+		  </div>
+	  <% end %>
+	</div>
+</div>
