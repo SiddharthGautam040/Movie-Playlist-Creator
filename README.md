@@ -10,7 +10,7 @@ Follow these easy steps to install and start the app:
 
 First, clone the repo
 
-next, install the gems required by the application:
+Next, install the gems required by the application:
 
     bundle install
 
