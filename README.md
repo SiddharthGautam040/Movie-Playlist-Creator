@@ -37,6 +37,14 @@ You can find your app now by pointing your browser to [http://localhost:3000](ht
 
 As soon as you sign-up or login in the application you will be redirected to search page of the application where you can search a movie or series avaliable in database and add that movie/series to your own created playlist. You can create a playlist, delete a playlist or remove specific item from playlist all of these actions are only allowed to logged in user.
 
+### This applicaiton is also Hosted on Heroku 
+
+https://fasal-assignment-siddharth.herokuapp.com/
+
+You can directly login with demo user details
+
+	email: 	  user@sample.com
+	password: demouser
 
 
 ## More information
