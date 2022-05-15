@@ -1,24 +1,49 @@
-# README
+# Movie Playlist Creator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple movie playlist creator application in which a user who has signed up can create a playlist and can search a movie and add that movie to an existing playlist.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Follow these easy steps to install and start the app:
 
-* System dependencies
+### Set up Rails app
 
-* Configuration
+First, install the gems required by the application:
 
-* Database creation
+    bundle install
 
-* Database initialization
+Next, execute the database migrations/schema setup:
 
-* How to run the test suite
+	rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+We have used API(https://www.omdbapi.com/) for searching a movie.
 
-* Deployment instructions
 
-* ...
+### Start the app
+
+Before statting the application try running unit tests
+
+    rails test
+    
+If tests runned without any failure start the Rails app to see the movie playlist creator application. You're ready to localize your app:
+
+    rails server
+
+You can find your app now by pointing your browser to [http://localhost:3000](http://localhost:3000). If everything worked you can sign up into Movie Playlist Creator
+
+## Little about using the application
+
+As soon as you sign-up or login in the application you will be redirected to search page of the application where you can search a movie or series avaliable in database and add that movie/series to your own created playlist. You can create a playlist, delete a playlist or remove specific item from playlist all of these actions are only allowed to logged in user.
+
+
+
+## More information
+
+* We are not a patron of (https://www.omdbapi.com/) so we request you to not do more than 1000 requests of a day.
+* Some of the movies did not have any poster so we have used a defalt poster for them
+* Some times API is pretty busy and do not respond but we have taken care of that.
+
+## Get help / support
+
+Ran into trouble please contact [siddharthgautam040@gmail.com] and we can take more direct action toward finding a solution.
+
