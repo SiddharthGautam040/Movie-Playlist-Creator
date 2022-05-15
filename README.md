@@ -1,6 +1,6 @@
 # Movie Playlist Creator
 
-Simple movie playlist creator application in which a user who has signed up can create a playlist and can search a movie and add that movie to an existing playlist.
+Simple movie playlist creator application in which a user who has signed up can create a playlist and can search a movie and add that movie to a playlist.
 
 ## Installation
 
@@ -8,7 +8,9 @@ Follow these easy steps to install and start the app:
 
 ### Set up Rails app
 
-First, install the gems required by the application:
+First, clone the repo
+
+next, install the gems required by the application:
 
     bundle install
 
@@ -39,8 +41,8 @@ As soon as you sign-up or login in the application you will be redirected to sea
 
 ## More information
 
-* We are not a patron of (https://www.omdbapi.com/) so we request you to not do more than 1000 requests of a day.
-* Some of the movies did not have any poster so we have used a defalt poster for them
+* We are not a patron of (https://www.omdbapi.com/) so we request you to not do more than 1000 search requests of a day.
+* Some of the movies did not have any poster so we have used a default poster for them
 * Some times API is pretty busy and do not respond but we have taken care of that.
 
 ## Get help / support
