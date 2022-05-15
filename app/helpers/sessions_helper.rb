@@ -35,4 +35,11 @@ module SessionsHelper
 			redirect_to user_now
 		end
 	end
+
+	def is_curr_user_playlist
+		playlist =  Playlist.find_by(id: params[:id], user_id: curr_user)
+		if not playlist
+			redirect_to user_now
+		end
+	end
 end

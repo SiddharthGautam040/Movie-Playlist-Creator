@@ -1,5 +1,7 @@
 class PlaylistsController < ApplicationController
 	before_action :logged_in, only: [:new, :create, :show, :destroy]
+	before_action :is_curr_user_playlist, only: [:show] 
+
 	def new
 		@playlist = Playlist.new()
 	end
