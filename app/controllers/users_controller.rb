@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: [:show, :searchapi, :search]
+  before_action :logged_in, only: [:show, :searchapi, :search, :showall]
   before_action :user_in_session, only: [:new]
   before_action :is_param_user, only: [:show]
 	def new
@@ -20,6 +20,11 @@ class UsersController < ApplicationController
   def show
     @user = user_now
     @playlists = Playlist.where(user_id: @user)
+  end
+
+  def showall
+    @user = user_now
+    @all_playlists = Playlist.all
   end
 
   def searchapi
@@ -64,5 +69,4 @@ class UsersController < ApplicationController
         end
       JSON.parse(response)
     end
-
 end

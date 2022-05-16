@@ -34,6 +34,10 @@ class PlaylistsController < ApplicationController
 		@playlist_items = Listitem.where(playlist_id: params[:id])
 		@playlist = Playlist.find_by(id: params[:id])
 		@user = user_now
+		if @playlist == nil
+			flash[:danger] = "No Playlist exits at that path"
+			redirect_to allplaylists_path
+		end
 	end
 
 	private

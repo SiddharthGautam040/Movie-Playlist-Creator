@@ -10,7 +10,10 @@
           <%= link_to "Search" ,search_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Playlists",@user, class: "nav-link" %>
+          <%= link_to "Your Playlists",@user, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Public Playlists",allplaylists_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Log Out", logout_path , data: { "turbo-method": "delete" }, class: "nav-link" %>

@@ -1,10 +1,16 @@
 <%= render 'shared/navbar' %>
 <div class="text-center">
-	<h2><%= @playlist.title %></h2>
+	<%if @playlist %>
+		<h2><%= @playlist.title %></h2>
+	<%end%>
 </div>
 <div class="container">
 	<%if @playlist_items.length() == 0 %>
-		<h2 class="text-center mt-5"> This list is empty. Try <%= link_to "searching", search_path %> and adding some movies </h2>
+		<%if @delete_rights == true%>
+			<h2 class="text-center mt-5"> This playlist is empty. Try <%= link_to "searching", search_path %> and adding some movies </h2>
+		<%elsif @delete_rights == false %>
+			<h2 class="text-center mt-5"> This playlist is empty.</h2>
+		<%end%>
 	<% end %>
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 	  <% for movie in @playlist_items %>
@@ -20,9 +26,11 @@
 	        	<li class="list-group-item">Genre <%= movie.genere %></li>
 	        	<li class="list-group-item">Awards <%= movie.awards %></li>
       		</ul>
-      		<div class="card-body">
-        		<%= button_to "Remove", deleteitem_path(movie), class: "btn btn-danger" , method: :delete %>
-      		</div>
+      			<%if @delete_rights == true%>
+		      		<div class="card-body">
+		        		<%= button_to "Remove", deleteitem_path(movie), class: "btn btn-danger" , method: :delete %>
+		      		</div>
+		      	<%end%>
     		</div>
 		  </div>
 	  <% end %>

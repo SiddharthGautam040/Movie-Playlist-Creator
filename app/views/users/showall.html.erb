@@ -1,0 +1,23 @@
+<%= render "shared/navbar" %>
+<%= render "shared/flasherrors" %>
+<h2 class="text-center mt-3"> Public Playlists </h2>
+	<div class = "container mt-3">
+	  <div class="row row-cols-1 row-cols-md-3 g-4">
+	  	<% for playlist in @all_playlists %>
+		    <div class="col">
+		      <div class="card h-100">
+		        <div class="card-body">
+		          <h5 class="card-title"><%= playlist.title %></h5>
+		          <p class="card-text"><%= playlist.description %></p>
+		          <div class= "inline">
+		          <%= button_to "Check List", playlist_path(playlist), method: :get, class: "btn btn-primary mt-2" %>
+		      </div>
+		        </div>
+		        <div class="card-footer">
+		          <small class="text-muted">Updated <%= distance_of_time_in_words playlist.updated_at, Time.now %> ago.<br>Created By: <%= user_name(playlist).name %></small>
+		        </div>
+		      </div>
+		    </div>
+	    <%end%>
+	  </div>
+	</div>

@@ -39,7 +39,14 @@ module SessionsHelper
 	def is_curr_user_playlist
 		playlist =  Playlist.find_by(id: params[:id], user_id: curr_user)
 		if not playlist
-			redirect_to user_now
+			@delete_rights = false
+		else
+			@delete_rights = true
 		end
 	end
+
+	def user_name(playlist)
+    playlist_for = playlist.user_id
+    User.find_by(id: playlist_for)
+  end
 end
