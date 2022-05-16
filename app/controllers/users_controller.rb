@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def showall
     @user = user_now
-    @all_playlists = Playlist.all
+    @all_playlists = Playlist.where(is_public: "1")
   end
 
   def searchapi

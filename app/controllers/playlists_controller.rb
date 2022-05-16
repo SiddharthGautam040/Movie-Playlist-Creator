@@ -19,7 +19,7 @@ class PlaylistsController < ApplicationController
 	end
 
 	def destroy
-		@playlist = Playlist.find_by(id: params[:id])
+		@playlist = Playlist.find_by(id: params[:id], user_id: curr_user)
 		if @playlist
 			items = Listitem.where(playlist_id: params[:id])
 			items.destroy_all
@@ -33,6 +33,9 @@ class PlaylistsController < ApplicationController
 	def show
 		@playlist_items = Listitem.where(playlist_id: params[:id])
 		@playlist = Playlist.find_by(id: params[:id])
+		if @playlist.is_public == "0" && @playlist.user_id != curr_user
+			@playlist = nil
+		end
 		@user = user_now
 		if @playlist == nil
 			flash[:danger] = "No Playlist exits at that path"
@@ -43,6 +46,6 @@ class PlaylistsController < ApplicationController
 	private
 
 	  def playlist_params
-	    params.require(:playlist).permit(:title, :description)
+	    params.require(:playlist).permit(:title, :description, :is_public)
 	  end
 end

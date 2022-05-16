@@ -11,6 +11,10 @@
       <%= f.label :description, class: "form-label" %>
       <%= f.text_area :description, class: "form-control", placeholder: "Description of Playlist" %>
     </div>
-    <%= f.submit "Create Playlist", class: "btn btn-info btn-lg btn-block"%>
+    <div class="field">
+      <%= f.label "Public" %>
+      <%= f.check_box :is_public %>
+    </div>
+    <%= f.submit "Create Playlist", class: "btn btn-info btn-lg btn-block mt-3"%>
   <%end%>
 </div>
