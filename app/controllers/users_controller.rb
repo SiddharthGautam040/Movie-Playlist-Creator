@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     def api_call(movie_name)
       movie_name = movie_name.split
       movie_name = movie_name.join('+')
-      uri = URI("http://www.omdbapi.com/?t=#{movie_name}&apikey=88d1c166")
+      uri = URI("http://www.omdbapi.com/?t=#{movie_name}&apikey=APIKEYHERE")
       begin
         response = Net::HTTP.get(uri)
         rescue Net::OpenTimeout
